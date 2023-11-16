@@ -9,9 +9,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import logo from "../../images/logo.png";
 
-const pages = ["Home", "TV shows", "About us"];
-
-export default function ButtonAppBar() {
+export default function Navigation({pages}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -24,8 +22,8 @@ export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h6" component="div">
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center",  backgroundColor: "#14213d" }}>
+          <Typography variant="h6" component="div" sx={{paddingTop: '5px'}} >
             <img src={logo} alt="logo" width={"250px"} />
           </Typography>
           <IconButton
@@ -46,6 +44,14 @@ export default function ButtonAppBar() {
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
             MenuListProps={{
               "aria-labelledby": "basic-button",
             }}
