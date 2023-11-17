@@ -26,10 +26,10 @@ export default function SingleCard({ id, name, time, image, handleId }) {
           style={{
             border: "1px solid #000000",
             borderRadius: "3px",
-            background: "#fca311",
+            background: "#E50914",
             width: "100px",
             height: "30px",
-            color: "#000000",
+            color: "#fff",
           }}
         >
           Show more
