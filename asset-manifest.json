@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/react_basic_app/static/css/main.3d2b6d5d.css",
-    "main.js": "/react_basic_app/static/js/main.cb9cf818.js",
+    "main.js": "/react_basic_app/static/js/main.e7c84465.js",
     "static/js/787.68b1b8da.chunk.js": "/react_basic_app/static/js/787.68b1b8da.chunk.js",
     "static/media/google-play-badge.png": "/react_basic_app/static/media/google-play-badge.9a6894252cdf23607f0c.png",
     "static/media/logo.png": "/react_basic_app/static/media/logo.545906d1489685c87fb3.png",
     "static/media/app-store-badge.png": "/react_basic_app/static/media/app-store-badge.0887ffc6efdb521cbd55.png",
     "index.html": "/react_basic_app/index.html",
     "main.3d2b6d5d.css.map": "/react_basic_app/static/css/main.3d2b6d5d.css.map",
-    "main.cb9cf818.js.map": "/react_basic_app/static/js/main.cb9cf818.js.map",
+    "main.e7c84465.js.map": "/react_basic_app/static/js/main.e7c84465.js.map",
     "787.68b1b8da.chunk.js.map": "/react_basic_app/static/js/787.68b1b8da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3d2b6d5d.css",
-    "static/js/main.cb9cf818.js"
+    "static/js/main.e7c84465.js"
   ]
 }
