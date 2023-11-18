@@ -3,6 +3,12 @@ import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import SingleCard from "./components/SingleCard/SingeleCard";
 import Grid from '@mui/material/Unstable_Grid2';
+import Footer from "./components/Footer/Footer";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faFacebookF, faGooglePlusG, faGithub, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fas, faTwitter, faFacebookF, faGooglePlusG, faGithub, faFontAwesome)
 
 const pages = ["Home", "TV shows", "About us"];
 const mockData = [
@@ -40,11 +46,11 @@ function App() {
       <Navigation pages={pages}></Navigation>
       <Grid container spacing={2} sx={{margin: "20px", justifyContent: "center", alignItems: "flex-start"}}>
         {mockData.map(({id, name, time, image}) => (
-        <Grid item lg={4} md={6} key={id}>
+        <Grid item key={id}>
           <SingleCard id={id} name={name} time={time} image={image} handleId={handleId}></SingleCard> 
           </Grid>))}  
       </Grid>      
-
+      <Footer></Footer>
     </div>
   );
 }
