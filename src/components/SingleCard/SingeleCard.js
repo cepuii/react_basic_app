@@ -1,11 +1,15 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
+import { useMediaQuery } from 'react-responsive';
 
 export default function SingleCard({ id, name, time, image, handleId }) {
+
+  const isMobile = useMediaQuery({ maxWidth: 450 });
+
   return (
-    <Card sx={{ width: "395px", height: "222px", position: "relative" }}>
-      <CardMedia component="img" alt={name} image={image} width={'100%'} height={'100%'} />
+    <Card sx={{ width: isMobile ? "200px" : "395px", height: "222px", position: "relative" }}>
+      <CardMedia component="img" alt={name} image={image} width={'100%'} height={'100%'}/>
       <div
         style={{
           position: "absolute",
