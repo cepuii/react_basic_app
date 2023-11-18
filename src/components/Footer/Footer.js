@@ -2,24 +2,11 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { IconButton, Link } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "@mui/material/Button";
 import googlePlayBadge from "../../images/google-play-badge.png";
 import appStoreBadge from "../../images/app-store-badge.png";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 export default function Footer() {
   const additionalInfoButtons = [
@@ -52,8 +39,6 @@ export default function Footer() {
         bgcolor: "#141414",
         color: "white",
         padding: "40px 0 20px",
-        position: "absolute",
-        bottom: 0,
         width: "100%",
       }}
       component="footer"
@@ -96,7 +81,6 @@ export default function Footer() {
             the property of, Streamit Inc. Duplication and copy of this is
             strictly prohibited. All rights reserved.
           </Typography>
-          <Copyright />
         </Grid>
         <Grid item lg={2}>
           <Typography

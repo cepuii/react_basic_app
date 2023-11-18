@@ -42,7 +42,7 @@ function App() {
   const handleId = (id) => console.log(id);
 
   return (
-    <div className="App" style={{  backgroundColor: "#4a4e69", minHeight: "100vh"}}>
+    <div className="App" style={{  backgroundColor: "#4a4e69", minHeight: "100vh", display: "grid", gridTemplateRows: "auto 1fr auto"}}>
       <Navigation pages={pages}></Navigation>
       <Grid container spacing={2} sx={{margin: "20px", justifyContent: "center", alignItems: "flex-start"}}>
         {mockData.map(({id, name, time, image}) => (
