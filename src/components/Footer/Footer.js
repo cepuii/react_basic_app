@@ -52,8 +52,9 @@ export default function Footer() {
       >
         <Grid item lg={6}>
           <Box sx={{ display: "flex", gap: 2 }}>
-            {additionalInfoButtons.map((value) => (
+            {additionalInfoButtons.map((value, index) => (
               <Button
+                key={index}
                 size="md"
                 variant="plain"
                 color="neutral"
@@ -94,8 +95,9 @@ export default function Footer() {
             Follow us:
           </Typography>
 
-          {socialLinkIcons.map((iconName) => (
+          {socialLinkIcons.map((iconName, index) => (
             <IconButton
+              key={index}
               sx={{
                 bgcolor: "#252525",
                 margin: "5px",
