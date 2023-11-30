@@ -3,10 +3,42 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { IconButton } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import GoogleIcon from "@mui/icons-material/Google";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
 import googlePlayBadge from "../../images/google-play-badge.png";
 import appStoreBadge from "../../images/app-store-badge.png";
+
+const additionalInfoButtonsStyle = {
+  textTransform: "none",
+  padding: "10px",
+  "&:hover": {
+    backgroundColor: "#252525",
+  },
+};
+
+const socialLinkStyle = {
+  bgcolor: "#252525",
+  margin: "5px",
+  width: "40px",
+  height: "40px",
+  "&:hover": {
+    border: `2px solid white`,
+    backgroundColor: "#252525",
+  },
+};
+
+const buttonStoreStyle = {
+  bgcolor: "#252525",
+  width: "145px",
+  height: "55px",
+  "&:hover": {
+    border: `2px solid white`,
+    backgroundColor: "#252525",
+  },
+};
 
 export default function Footer() {
   const additionalInfoButtons = [
@@ -15,23 +47,6 @@ export default function Footer() {
     "FAQ",
     "Watch List",
   ];
-
-  const socialLinkIcons = [
-    "fa-facebook-f",
-    "fa-twitter",
-    "fa-google-plus-g",
-    "fa-github",
-  ];
-
-  const buttonStoreStyle = {
-    bgcolor: "#252525",
-    width: "145px",
-    height: "55px",
-    "&:hover": {
-      border: `2px solid white`,
-      backgroundColor: "#252525",
-    },
-  };
 
   return (
     <Box
@@ -58,13 +73,7 @@ export default function Footer() {
                 size="md"
                 variant="plain"
                 color="neutral"
-                sx={{
-                  textTransform: "none",
-                  padding: "10px",
-                  "&:hover": {
-                    backgroundColor: "#252525",
-                  },
-                }}
+                sx={additionalInfoButtonsStyle}
               >
                 {value}
               </Button>
@@ -95,29 +104,38 @@ export default function Footer() {
             Follow us:
           </Typography>
 
-          {socialLinkIcons.map((iconName, index) => (
-            <IconButton
-              key={index}
-              sx={{
-                bgcolor: "#252525",
-                margin: "5px",
-                width: "40px",
-                height: "40px",
-                "&:hover": {
-                  border: `2px solid white`,
-                  backgroundColor: "#252525",
-                },
-              }}
-              size="small"
-              aria-label="socialLink"
-              onClick={(event) => console.log(event)}
-            >
-              <FontAwesomeIcon
-                icon={"fa-brands " + iconName}
-                style={{ color: "#fff" }}
-              />
-            </IconButton>
-          ))}
+          <IconButton
+            sx={socialLinkStyle}
+            size="small"
+            aria-label="socialLink"
+            onClick={(event) => console.log(event)}
+          >
+            <FacebookRoundedIcon style={{ color: "#fff" }} />
+          </IconButton>
+          <IconButton
+            sx={socialLinkStyle}
+            size="small"
+            aria-label="socialLink"
+            onClick={(event) => console.log(event)}
+          >
+            <TwitterIcon style={{ color: "#fff" }} />
+          </IconButton>
+          <IconButton
+            sx={socialLinkStyle}
+            size="small"
+            aria-label="socialLink"
+            onClick={(event) => console.log(event)}
+          >
+            <GoogleIcon style={{ color: "#fff" }} />
+          </IconButton>
+          <IconButton
+            sx={socialLinkStyle}
+            size="small"
+            aria-label="socialLink"
+            onClick={(event) => console.log(event)}
+          >
+            <GitHubIcon style={{ color: "#fff" }} />
+          </IconButton>
         </Grid>
         <Grid item lg={2}>
           <Typography
@@ -140,7 +158,6 @@ export default function Footer() {
           </Box>
         </Grid>
       </Grid>
-      {/* </div> */}
     </Box>
   );
 }
