@@ -1,7 +1,8 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const cardBackgroundStyle = {
   position: "absolute",
@@ -25,7 +26,7 @@ const buttonStyle = {
   color: "#fff",
 };
 
-export default function SingleCard({ id, name, time, image, handleId: handleCardClick }) {
+export default function SingleCard({ id, name, time, image}) {
   return (
     <Card sx={{ width: "400px", height: "200px", position: "relative" }}>
       <CardMedia
@@ -38,9 +39,9 @@ export default function SingleCard({ id, name, time, image, handleId: handleCard
       <Box sx={cardBackgroundStyle}>
         <Typography>{name}</Typography>
         <Typography>{time}</Typography>
-        <Button sx={buttonStyle} onClick={() => handleCardClick(id)}>
+        <Link to={`/films/:${id}`} style={buttonStyle}>
           Show more
-        </Button>
+        </Link>
       </Box>
     </Card>
   );
