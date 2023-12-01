@@ -39,7 +39,7 @@ export default function SingleCard({ id, name, time, image}) {
       <Box sx={cardBackgroundStyle}>
         <Typography>{name}</Typography>
         <Typography>{time}</Typography>
-        <Link to={`/films/:${id}`} style={buttonStyle}>
+        <Link to={`/shows/:${id}`} style={buttonStyle}>
           Show more
         </Link>
       </Box>

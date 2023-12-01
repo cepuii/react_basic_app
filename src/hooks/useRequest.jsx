@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function useRequest(url) {
   const [apiData, setApiData] = useState([]);
-
+  console.log(apiData);
   useEffect(() => {
     async function makeRequest() {
       try {

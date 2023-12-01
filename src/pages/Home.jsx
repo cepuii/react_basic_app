@@ -4,8 +4,9 @@ import { Grid } from "@mui/material";
 import SingleCard from "../components/SingleCard/SingeleCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../store/SearchSlice";
+
 function Home() {
-  const search = useSelector((state) => state.filmSearch.value);
+  const search = useSelector((state) => state.search.value);
   const searchRef = useRef("");
   const apiData = useRequest(
     search.length >= 3
@@ -13,7 +14,6 @@ function Home() {
       : `https://dolphin-app-pc6ii.ondigitalocean.app/article/popular`
   );
 
-  console.log(apiData);
   const dispatch = useDispatch();
   
   useEffect(() => {
