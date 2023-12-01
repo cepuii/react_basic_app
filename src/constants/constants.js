@@ -4,12 +4,13 @@ export const MENU = [
         link: '/home'
     },
     {
-        name: 'films',
-        link: '/films'
+        name: 'shows',
+        link: '/shows'
     },
     {
-        name: 'tv shows',
-        link: '/tvshows'
+        name: 'about us',
+        link: '/aboutus'
     }
 ]
 
+export const DEFAULT_IMAGE = "../images/logo.png";

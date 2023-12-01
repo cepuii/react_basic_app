@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import FilmSearchSlice from './FilmSearchSlice';
+import SearchSlice from './SearchSlice';
 
 export default configureStore({
   reducer: {
-    filmSearch: FilmSearchSlice,
+    search: SearchSlice,
   },
 })
