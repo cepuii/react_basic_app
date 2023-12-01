@@ -14,7 +14,7 @@ function useRequest(url) {
       }
     }
     makeRequest();
-  },);
+  }, [url]);
 
   return apiData;
 }

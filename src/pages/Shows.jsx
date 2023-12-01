@@ -1,6 +1,6 @@
 
-function Films(){
+function Shows(){
     return <h1>This is films page</h1>
 }
 
-export default Films;
+export default Shows;
