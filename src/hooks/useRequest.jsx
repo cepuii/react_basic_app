@@ -1,28 +1,22 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
-function useRequest(search){
-    const [apiData, setApiData] = useState([]);
+function useRequest(url) {
+  const [apiData, setApiData] = useState([]);
 
-    useEffect(() => {
-        async function makeRequest() {
-          try {
-            if (search.length >= 3) {
-              const response = await axios.get(
-                `https://api.tvmaze.com/search/shows?q=${search}`
-              );
-              setApiData(response.data);
-            } else {
-              setApiData([]);
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        }
-        makeRequest();
-      }, [search])
+  useEffect(() => {
+    async function makeRequest() {
+      try {
+        const response = await axios.get(url);
+        setApiData(response.data);
+      } catch (error) {
+        console.log(`Can't fetch data from url: ${url} \n ${error}`);
+      }
+    }
+    makeRequest();
+  },);
 
-      return apiData;
+  return apiData;
 }
 
 export default useRequest;
