@@ -7,16 +7,15 @@ import AddIcon from "@mui/icons-material/Add";
 import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 
 export default function SingleItemHeader({
-  name,
-  type = '',
-  rating,
+  name = "",
+  type = "",
+  rating = 0.0,
   premiered = "1999-1-1",
   genres = [],
-  averageRuntime,
-  series,
-  views,
-  image,
-  status,
+  averageRuntime = 60,
+  series = [],
+  views = 1,
+  image = {},
 }) {
   const genresString = genres?.join(", ");
   const showPoster = image?.medium ?? DEFAULT_IMAGE;
@@ -29,7 +28,7 @@ export default function SingleItemHeader({
     { month: "short", year: "numeric" }
   );
   return (
-    <Box sx={{margin: "20px 50px"}}>
+    <Box sx={{ margin: "20px 50px" }}>
       <Grid
         container
         sx={{ justifyContent: "space-between", margin: "20px", color: "#fff" }}
@@ -53,9 +52,10 @@ export default function SingleItemHeader({
             >
               {type.at(0)}
             </Avatar>{" "}
-            {showLengthHours}hr : {showLengthMinutes}mins • {dataString} • 👁{views} views
+            {showLengthHours}hr : {showLengthMinutes}mins • {dataString} • 👁
+            {views} views
           </Typography>
-          <Box marginBottom={1} sx={{ display: "flex"}}>
+          <Box marginBottom={1} sx={{ display: "flex" }}>
             <IconButton size="small" sx={{ bgcolor: "#fff", margin: "5px" }}>
               <ShareIcon sx={{ color: "red", fontSize: "small" }}></ShareIcon>
             </IconButton>
@@ -69,7 +69,7 @@ export default function SingleItemHeader({
             </IconButton>
           </Box>
           <Typography color="red">
-            {genres.length !== 0 && <CollectionsBookmarkIcon fontSize="small" />} {genres.length !== 0 && " TAGS: "}
+            {genres.length !== 0 && (<><CollectionsBookmarkIcon fontSize="small" /> TAGS: </>)}
             {[...genres].map((value, index) => (
               <Link key={index} href="#" color="#fff" underline="none">
                 {value}
@@ -79,7 +79,12 @@ export default function SingleItemHeader({
           </Typography>
         </Grid>
         <Grid item>
-          <img src={showPoster} alt="film poster" width="220px" height="300px"/>
+          <img
+            src={showPoster}
+            alt="film poster"
+            width="220px"
+            height="300px"
+          />
         </Grid>
       </Grid>
     </Box>
