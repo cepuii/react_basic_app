@@ -27,13 +27,13 @@ export default function StickyHeadTable({rows = []}) {
   };
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
+    <Paper sx={{ width: "100%", overflow: "hidden", bgcolor: "#2b2d42" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
+                <TableCell sx={{bgcolor: "#2b2d42"}}
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
@@ -43,7 +43,7 @@ export default function StickyHeadTable({rows = []}) {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody sx={{bgcolor: "#8d99ae"}}>
             {rows?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((row, index) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={index}>
