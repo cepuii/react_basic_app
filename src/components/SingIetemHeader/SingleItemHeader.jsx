@@ -1,6 +1,6 @@
 import { Avatar, Box, IconButton, Link, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { DEFAULT_IMAGE } from "../../constants/constants";
+import DEFAULT_IMAGE  from "../../images/movie-logo.png";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
@@ -15,18 +15,21 @@ export default function SingleItemHeader({
   averageRuntime = 60,
   series = [],
   views = 1,
-  image = {},
+  image = DEFAULT_IMAGE,
 }) {
   const genresString = genres?.join(", ");
   const showPoster = image?.medium ?? DEFAULT_IMAGE;
   const showLength = 1 * averageRuntime * series?.length;
   const showLengthHours = Math.floor(showLength / 60);
   const showLengthMinutes = showLength % 60;
-  const [year, month, day] = premiered.split("-");
-  const dataString = new Date(year, month - 1, day).toLocaleDateString(
-    "en-US",
-    { month: "short", year: "numeric" }
-  );
+  let dateString = "";
+  if (premiered) {
+    const [year, month, day] = premiered.split("-");
+    dateString = new Date(year, month - 1, day).toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+  }
   return (
     <Box sx={{ margin: "20px 50px" }}>
       <Grid
@@ -52,7 +55,7 @@ export default function SingleItemHeader({
             >
               {type.at(0)}
             </Avatar>{" "}
-            {showLengthHours}hr : {showLengthMinutes}mins • {dataString} • 👁
+            {showLengthHours}hr : {showLengthMinutes}mins • {dateString} • 👁
             {views} views
           </Typography>
           <Box marginBottom={1} sx={{ display: "flex" }}>
@@ -69,7 +72,11 @@ export default function SingleItemHeader({
             </IconButton>
           </Box>
           <Typography color="red">
-            {genres.length !== 0 && (<><CollectionsBookmarkIcon fontSize="small" /> TAGS: </>)}
+            {genres.length !== 0 && (
+              <>
+                <CollectionsBookmarkIcon fontSize="small" /> TAGS:{" "}
+              </>
+            )}
             {[...genres].map((value, index) => (
               <Link key={index} href="#" color="#fff" underline="none">
                 {value}

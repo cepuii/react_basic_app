@@ -13,4 +13,4 @@ export const MENU = [
     }
 ]
 
-export const DEFAULT_IMAGE = "../images/logo.png";
+export const DEFAULT_IMAGE = "../images/movie-logo.png";
