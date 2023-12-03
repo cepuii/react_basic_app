@@ -46,7 +46,7 @@ function Home() {
       ></input>
       <Grid
         container
-        spacing={2}
+        spacing={3}
         sx={{
           margin: "20px",
           justifyContent: "center",

@@ -1,8 +1,19 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { Box, Typography } from "@mui/material";
+import { Box, CardActionArea, Tooltip, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+
+const cardStyle = {
+  width: "250px",
+  height: "350px",
+  position: "relative",
+  borderRadius: "5px",
+  transition: "transform 0.2s",
+  ":hover": {
+    transform: "scale(1.1)",
+  },
+};
 
 const cardBackgroundStyle = {
   position: "absolute",
@@ -17,32 +28,29 @@ const cardBackgroundStyle = {
     "linear-gradient(90deg, rgba(0, 0, 0, 0.80) 0%, rgba(20, 20, 20, 0.40) 50%, rgba(83, 100, 141, 0.00) 100%",
 };
 
-const buttonStyle = {
-  border: "1px solid #000000",
-  borderRadius: "3px",
-  background: "#E50914",
-  width: "150px",
-  height: "30px",
-  color: "#fff",
-};
+export default function SingleCard({ id, name, time, image }) {
 
-export default function SingleCard({ id, name, time, image}) {
+  const showInfo = `${name}, premiered: ${time}`; 
+
   return (
-    <Card sx={{ width: "400px", height: "200px", position: "relative" }}>
-      <CardMedia
-        component="img"
-        alt={name}
-        image={image}
-        width={"100%"}
-        height={"100%"}
-      />
-      <Box sx={cardBackgroundStyle}>
-        <Typography>{name}</Typography>
-        <Typography>{time}</Typography>
-        <Link to={`/shows/:${id}`} style={buttonStyle}>
-          Show more
-        </Link>
-      </Box>
+    <Card sx={cardStyle}>
+      <Link to={`/shows/:${id}`}>
+        <Tooltip title={showInfo} followCursor>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt={name}
+            image={image}
+            width={"100%"}
+            height={"100%"}
+            />
+          <div style={cardBackgroundStyle}>
+            <Box sx={{display: "grid", placeContent: "end"}}>
+            </Box>
+          </div>
+        </CardActionArea>
+            </Tooltip>
+      </Link>
     </Card>
   );
 }
