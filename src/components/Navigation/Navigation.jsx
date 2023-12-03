@@ -6,19 +6,13 @@ import Typography from "@mui/material/Typography";
 import logo from "../../images/logo.png";
 import { MENU } from "../../constants/constants";
 import { NavLink } from "react-router-dom";
-
-const navToolbarStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  backgroundColor: "#14213d",
-};
+import "./navigation.css";
 
 export default function Navigation({ pages }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar sx={navToolbarStyle}>
+        <Toolbar sx={{backgroundColor: "#2b2d42"}}>
           <Typography variant="h6" component="div" sx={{ paddingTop: "5px" }}>
             <img src={logo} alt="logo" width={"250px"} />
           </Typography>
