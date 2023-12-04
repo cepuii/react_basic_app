@@ -1,13 +1,11 @@
-import { useEffect, useRef } from "react";
 import useRequest from "../hooks/useRequest";
-import { Grid } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import SingleCard from "../components/SingleCard/SingeleCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../store/SearchSlice";
 
 function Home() {
   const search = useSelector((state) => state.search.value);
-  const searchRef = useRef("");
   const apiData = useRequest(
     search.length >= 3
       ? `https://dolphin-app-pc6ii.ondigitalocean.app/article?q=${search}`
@@ -15,35 +13,30 @@ function Home() {
   );
 
   const dispatch = useDispatch();
-  
-  useEffect(() => {
-    searchRef.current.focus();
-  }, []);
-
   const handleSearch = (e) => {
-    dispatch(setSearch(searchRef.current.value));
+    dispatch(setSearch(e.target.value));
   };
 
   return (
     <Grid
       item
       container
-      pb={20}
       sx={{ display: "flex", justifyContent: "center" }}
     >
-      <input
-        type="text"
+      <TextField
+        autoFocus
+        label="Show search"
+        id="search"
         name="search"
         value={search}
         onChange={handleSearch}
-        ref={searchRef}
-        style={{
-          margin: "20px",
+        sx={{
+          width: "270px",
+          margin: "40px 20px 0",
           height: "20px",
-          border: "none",
           backgroundColor: "209, 208, 207, .6",
         }}
-      ></input>
+      />
       <Grid
         container
         spacing={3}
@@ -53,14 +46,9 @@ function Home() {
           alignItems: "flex-start",
         }}
       >
-        {apiData.map(({ id, name, image, premiered }, index) => (
+        {apiData.map((cardInfo, index) => (
           <Grid item key={index}>
-            <SingleCard
-              id={id}
-              name={name}
-              time={premiered}
-              image={image ? image.medium : ""}
-            ></SingleCard>
+            <SingleCard {...cardInfo}></SingleCard>
           </Grid>
         ))}
       </Grid>

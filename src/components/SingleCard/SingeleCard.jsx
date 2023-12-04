@@ -1,8 +1,10 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { Box, CardActionArea, Tooltip, Typography } from "@mui/material";
+import { Box, CardActionArea, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
+import DEFAULT_IMAGE from "../../images/movie-logo.png";
+
 
 const cardStyle = {
   width: "250px",
@@ -31,6 +33,7 @@ const cardBackgroundStyle = {
 export default function SingleCard({ id, name, time, image }) {
 
   const showInfo = `${name}, premiered: ${time}`; 
+ 
 
   return (
     <Card sx={cardStyle}>
@@ -40,9 +43,9 @@ export default function SingleCard({ id, name, time, image }) {
           <CardMedia
             component="img"
             alt={name}
-            image={image}
-            width={"100%"}
-            height={"100%"}
+            image={image?.medium ?? DEFAULT_IMAGE}
+            width={"250px"}
+            height={"350px"}
             />
           <div style={cardBackgroundStyle}>
             <Box sx={{display: "grid", placeContent: "end"}}>
