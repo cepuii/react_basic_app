@@ -18,12 +18,9 @@ function Home() {
   };
 
   return (
-    <Grid
-      item
-      container
-      sx={{ display: "flex", justifyContent: "center" }}
-    >
+    <Grid item container sx={{ display: "flex", justifyContent: "center" }}>
       <TextField
+        variant="standard"
         autoFocus
         label="Show search"
         id="search"
