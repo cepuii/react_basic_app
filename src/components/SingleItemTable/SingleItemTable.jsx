@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import { Rating } from "@mui/material";
 
 const columns = [
   { id: "name", label: "Episode", minWidth: 170 },
@@ -14,7 +15,7 @@ const columns = [
   { id: "rating", label: "Rating", minWidth: 170 },
 ];
 
-export default function StickyHeadTable({rows = []}) {
+export default function StickyHeadTable({ rows = [] }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const handleChangePage = (event, newPage) => {
@@ -33,7 +34,8 @@ export default function StickyHeadTable({rows = []}) {
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell sx={{bgcolor: "#2b2d42"}}
+                <TableCell
+                  sx={{ bgcolor: "#2b2d42" }}
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
@@ -43,15 +45,31 @@ export default function StickyHeadTable({rows = []}) {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody sx={{bgcolor: "#8d99ae"}}>
-            {rows?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((row, index) => {
+          <TableBody sx={{ bgcolor: "#8d99ae" }}>
+            {rows
+              ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              ?.map((row, index) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={index}>
                     {columns.map((column) => {
-                      const value = column.id === "rating" ? row.rating.average : row[column.id];
+                      const value =
+                        column.id === "rating"
+                          ? row.rating.average
+                          : row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number" ? column.format(value) : value}
+                          {column.id === "rating" && (<>
+                            <Rating sx={{top: "5px"}}
+                              value={value}
+                              max={10}
+                              readOnly
+                              precision={0.1}
+                              />{"  "}
+                              </>
+                          )}
+                          {column.format && typeof value === "number"
+                            ? column.format(value)
+                            : value}
                         </TableCell>
                       );
                     })}

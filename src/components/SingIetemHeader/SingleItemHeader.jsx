@@ -1,6 +1,13 @@
-import { Avatar, Box, IconButton, Link, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  IconButton,
+  Link,
+  Rating,
+  Typography,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import DEFAULT_IMAGE  from "../../images/movie-logo.png";
+import DEFAULT_IMAGE from "../../images/movie-logo.png";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
@@ -38,7 +45,9 @@ export default function SingleItemHeader({
       >
         <Grid item alignSelf="center">
           <Typography variant="h2">
-            {name} {rating?.average}
+            {name}
+            <Rating sx={{bottom: "10px", fontSize: "25px"}} value={Math.round(rating?.average*2)/2} precision={0.5} max={10} readOnly />
+            {rating?.average}
           </Typography>
           <Typography marginBottom={1}>{genresString}</Typography>
           <Typography marginBottom={1}>
