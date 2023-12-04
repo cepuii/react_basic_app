@@ -16,7 +16,7 @@ import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 export default function SingleItemHeader({
   name = "",
   type = "",
-  rating = 0.0,
+  rating,
   premiered = "1999-1-1",
   genres = [],
   averageRuntime = 60,
@@ -29,6 +29,7 @@ export default function SingleItemHeader({
   const showLength = 1 * averageRuntime * series?.length;
   const showLengthHours = Math.floor(showLength / 60);
   const showLengthMinutes = showLength % 60;
+  const averageRating = rating?.average ?? 0;
   let dateString = "";
   if (premiered) {
     const [year, month, day] = premiered.split("-");
@@ -45,9 +46,10 @@ export default function SingleItemHeader({
       >
         <Grid item alignSelf="center">
           <Typography variant="h2">
-            {name}
-            <Rating sx={{bottom: "10px", fontSize: "25px"}} value={rating?.average} precision={0.1} max={10} readOnly />
-            {rating?.average}
+            {name + " "}
+           
+            <Rating  max={10} readOnly  value={averageRating} precision={0.1} sx={{bottom: "10px", fontSize: "25px"}}/>
+            {" " + rating?.average}
           </Typography>
           <Typography marginBottom={1}>{genresString}</Typography>
           <Typography marginBottom={1}>
