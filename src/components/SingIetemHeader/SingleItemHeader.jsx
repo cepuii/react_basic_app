@@ -1,17 +1,13 @@
-import {
-  Avatar,
-  Box,
-  IconButton,
-  Link,
-  Rating,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, IconButton, Rating, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import DEFAULT_IMAGE from "../../images/movie-logo.png";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
 import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
+import { useDispatch } from "react-redux";
+import { setGenre } from "../../store/SearchSlice";
+import { Link } from "react-router-dom";
 
 export default function SingleItemHeader({
   name = "",
@@ -38,6 +34,11 @@ export default function SingleItemHeader({
       year: "numeric",
     });
   }
+  const dispatch = useDispatch();
+  const handleTagLinkClick = (e) => {
+    dispatch(setGenre(e.target.id));
+  };
+
   return (
     <Box sx={{ margin: "20px 50px" }}>
       <Grid
@@ -95,7 +96,14 @@ export default function SingleItemHeader({
               </>
             )}
             {[...genres].map((value, index) => (
-              <Link key={index} href="#" color="#fff" underline="none">
+              <Link
+                key={index}
+                id={value}
+                to={"/shows/"}
+                onClick={handleTagLinkClick}
+                color="#fff"
+                style={{ textDecoration: "none", color: "white" }}
+              >
                 {value}
                 {"  "}
               </Link>
