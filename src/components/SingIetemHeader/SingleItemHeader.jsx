@@ -47,9 +47,15 @@ export default function SingleItemHeader({
         <Grid item alignSelf="center">
           <Typography variant="h2">
             {name + " "}
-           
-            <Rating  max={10} readOnly  value={averageRating} precision={0.1} sx={{bottom: "10px", fontSize: "25px"}}/>
-            {" " + rating?.average}
+
+            <Rating
+              max={10}
+              readOnly
+              value={averageRating}
+              precision={0.1}
+              sx={{ bottom: "10px", fontSize: "25px" }}
+            />
+            {" " + averageRating === 0 ? "" : averageRating}
           </Typography>
           <Typography marginBottom={1}>{genresString}</Typography>
           <Typography marginBottom={1}>
