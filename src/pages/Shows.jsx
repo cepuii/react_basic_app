@@ -26,18 +26,18 @@ function Shows() {
   return (
     <Box sx={{ width: "95%", ml: "50px" }}>
       <h1>Show by genre: {genre} </h1>
-      <FormControl sx={{ display: "block", m: 1, width: "300px" }}>
+      <FormControl sx={{ display: "block", m: 1, width: "200px" }}>
         <InputLabel id="select-label">Genre</InputLabel>
         <Select
           labelId="select-label"
-          id="select"
           defaultValue={GENRES[0]}
           value={genre}
           label="Genre"
           onChange={handleGenreChange}
+          sx={{width: "100%"}}
         >
           {GENRES.map((genre, index) => (
-            <MenuItem key={index} value={genre}>
+            <MenuItem key={index}  value={genre}>
               {genre}
             </MenuItem>
           ))}
