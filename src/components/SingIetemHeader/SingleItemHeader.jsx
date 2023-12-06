@@ -9,6 +9,15 @@ import { useDispatch } from "react-redux";
 import { setGenre } from "../../store/SearchSlice";
 import { Link } from "react-router-dom";
 
+const showTypeStyle = {
+  bgcolor: "grey",
+  display: "inline-block",
+  width: 16,
+  height: 16,
+  fontSize: 14,
+  textAlign: "center",
+};
+
 export default function SingleItemHeader({
   name = "",
   type = "",
@@ -60,17 +69,7 @@ export default function SingleItemHeader({
           </Typography>
           <Typography marginBottom={1}>{genresString}</Typography>
           <Typography marginBottom={1}>
-            <Avatar
-              sx={{
-                bgcolor: "grey",
-                display: "inline-block",
-                width: 16,
-                height: 16,
-                fontSize: 14,
-                textAlign: "center",
-              }}
-              variant="rounded"
-            >
+            <Avatar sx={showTypeStyle} variant="rounded">
               {type.at(0)}
             </Avatar>{" "}
             {showLengthHours}hr : {showLengthMinutes}mins • {dateString} • 👁

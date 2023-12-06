@@ -11,6 +11,13 @@ import Button from "@mui/material/Button";
 import googlePlayBadge from "../../images/google-play-badge.png";
 import appStoreBadge from "../../images/app-store-badge.png";
 
+const mainContainerStyle = {
+  bgcolor: "#141414",
+  color: "white",
+  padding: "40px 0 20px",
+  width: "100%",
+};
+
 const additionalInfoButtonsStyle = {
   textTransform: "none",
   padding: "10px",
@@ -49,15 +56,7 @@ export default function Footer() {
   ];
 
   return (
-    <Box
-      sx={{
-        bgcolor: "#141414",
-        color: "white",
-        padding: "40px 0 20px",
-        width: "100%",
-      }}
-      component="footer"
-    >
+    <Box sx={mainContainerStyle} component="footer">
       <Grid
         container
         direction="row"
@@ -104,36 +103,16 @@ export default function Footer() {
             Follow us:
           </Typography>
 
-          <IconButton
-            sx={socialLinkStyle}
-            size="small"
-            aria-label="socialLink"
-            onClick={(event) => console.log(event)}
-          >
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <FacebookRoundedIcon style={{ color: "#fff" }} />
           </IconButton>
-          <IconButton
-            sx={socialLinkStyle}
-            size="small"
-            aria-label="socialLink"
-            onClick={(event) => console.log(event)}
-          >
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <TwitterIcon style={{ color: "#fff" }} />
           </IconButton>
-          <IconButton
-            sx={socialLinkStyle}
-            size="small"
-            aria-label="socialLink"
-            onClick={(event) => console.log(event)}
-          >
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <GoogleIcon style={{ color: "#fff" }} />
           </IconButton>
-          <IconButton
-            sx={socialLinkStyle}
-            size="small"
-            aria-label="socialLink"
-            onClick={(event) => console.log(event)}
-          >
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <GitHubIcon style={{ color: "#fff" }} />
           </IconButton>
         </Grid>

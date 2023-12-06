@@ -7,7 +7,8 @@ import { CardActionArea } from "@mui/material";
 import DEFAULT_IMAGE from "../../images/actor-logo.png";
 
 export default function ActorItem({ character = {}, person = {} }) {
-  const image = character?.image?.medium ?? person?.image?.medium ?? DEFAULT_IMAGE;
+  const image =
+    character?.image?.medium ?? person?.image?.medium ?? DEFAULT_IMAGE;
 
   return (
     <Card sx={{ width: 350, height: 200, bgcolor: "#8d99ae" }}>

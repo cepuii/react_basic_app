@@ -5,7 +5,7 @@ const SearchSlice = createSlice({
   initialState: {
     value: "",
     genre: "",
-    country: ""
+    country: "",
   },
   reducers: {
     setSearch: (state, action) => {
@@ -20,6 +20,6 @@ const SearchSlice = createSlice({
   },
 });
 
-export const {setSearch, setGenre, setCountry} = SearchSlice.actions;
+export const { setSearch, setGenre, setCountry } = SearchSlice.actions;
 
 export default SearchSlice.reducer;

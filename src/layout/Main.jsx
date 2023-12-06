@@ -17,7 +17,7 @@ function Main() {
     <Box className="App" sx={appBoxStyle}>
       <Navigation></Navigation>
       <Grid container>
-        <Outlet style={{marginBottom: 0}}/>
+        <Outlet style={{ marginBottom: 0 }} />
       </Grid>
       <Footer></Footer>
     </Box>
