@@ -5,7 +5,6 @@ import { Box, CardActionArea, Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import DEFAULT_IMAGE from "../../images/movie-logo.png";
 
-
 const cardStyle = {
   width: "250px",
   height: "350px",
@@ -29,28 +28,25 @@ const cardBackgroundStyle = {
 };
 
 export default function SingleCard({ id, name, time, image }) {
-
-  const showInfo = `${name}, premiered: ${time}`; 
- 
+  const showInfo = `${name}, premiered: ${time}`;
 
   return (
     <Card sx={cardStyle}>
       <Link to={`/shows/:${id}`}>
         <Tooltip title={showInfo} followCursor>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt={name}
-            image={image?.medium ?? DEFAULT_IMAGE}
-            width={"250px"}
-            height={"350px"}
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt={name}
+              image={image?.medium ?? DEFAULT_IMAGE}
+              width={"250px"}
+              height={"350px"}
             />
-          <div style={cardBackgroundStyle}>
-            <Box sx={{display: "grid", placeContent: "end"}}>
-            </Box>
-          </div>
-        </CardActionArea>
-            </Tooltip>
+            <div style={cardBackgroundStyle}>
+              <Box sx={{ display: "grid", placeContent: "end" }}></Box>
+            </div>
+          </CardActionArea>
+        </Tooltip>
       </Link>
     </Card>
   );

@@ -5,6 +5,7 @@ import { Box, Grid, Paper } from "@mui/material";
 import SingleItemTabs from "../components/SingleItemTabs/SingleItemTabs";
 import ActorItem from "../components/ActorItem/ActorItem";
 import { useState } from "react";
+import { ACTOR_CARDS_PER_PAGE } from "../constants/constants";
 
 const PaginationDots = ({ totalDots, activeDot, onPageClick }) => {
   return (
@@ -42,7 +43,7 @@ function ShowDetails() {
   const apiData = useRequest(showById);
   const castData = useRequest(showCastById);
   const [activeDot, setActiveDot] = useState(0);
-  const cardsPerPage = 4;
+  const cardsPerPage = ACTOR_CARDS_PER_PAGE;
   const totalDots = Math.ceil(castData.length / cardsPerPage);
 
   const handlePageClick = (index) => {

@@ -1,4 +1,3 @@
-import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,16 +7,12 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Rating } from "@mui/material";
-
-const columns = [
-  { id: "name", label: "Episode", minWidth: 170 },
-  { id: "airdate", label: "Airdate", minWidth: 100 },
-  { id: "rating", label: "Rating", minWidth: 170 },
-];
+import { COLUMNS_EPISODS } from "../../constants/constants";
+import { useState } from "react";
 
 export default function StickyHeadTable({ rows = [] }) {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -33,7 +28,7 @@ export default function StickyHeadTable({ rows = [] }) {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
+              {COLUMNS_EPISODS.map((column) => (
                 <TableCell
                   sx={{ bgcolor: "#2b2d42" }}
                   key={column.id}
@@ -51,21 +46,24 @@ export default function StickyHeadTable({ rows = [] }) {
               ?.map((row, index) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={index}>
-                    {columns.map((column) => {
+                    {COLUMNS_EPISODS.map((column) => {
                       const value =
                         column.id === "rating"
                           ? row.rating.average
                           : row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.id === "rating" && (<>
-                            <Rating sx={{top: "5px"}}
-                              value={value}
-                              max={10}
-                              readOnly
-                              precision={0.1}
-                              />{"  "}
-                              </>
+                          {column.id === "rating" && (
+                            <>
+                              <Rating
+                                sx={{ top: "5px" }}
+                                value={value}
+                                max={10}
+                                readOnly
+                                precision={0.1}
+                              />
+                              {"  "}
+                            </>
                           )}
                           {column.format && typeof value === "number"
                             ? column.format(value)

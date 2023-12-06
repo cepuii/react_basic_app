@@ -21,6 +21,8 @@ const style = {
 };
 
 export default function ActorItem({ character = {}, person = {} }) {
+
+  
   const [open, setOpen] = useState(false);
   const [actorId, setActorId] = useState(null);
   const [apiData, setApiData] = useState(null);
@@ -48,6 +50,7 @@ export default function ActorItem({ character = {}, person = {} }) {
   }, [actorId]);
 
   console.log(apiData);
+
 
   return (
     <>

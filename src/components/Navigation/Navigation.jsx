@@ -12,7 +12,7 @@ export default function Navigation({ pages }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar sx={{backgroundColor: "#2b2d42"}}>
+        <Toolbar sx={{ backgroundColor: "#2b2d42" }}>
           <Typography variant="h6" component="div" sx={{ paddingTop: "5px" }}>
             <img src={logo} alt="logo" width={"250px"} />
           </Typography>

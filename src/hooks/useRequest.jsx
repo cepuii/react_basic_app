@@ -11,7 +11,7 @@ function useRequest(url) {
         const response = await axios.get(url);
         setApiData(response.data);
       } catch (error) {
-        console.log(`Can't fetch data from url: ${url} \n ${error}`);
+        console.log(`Can't fetch data from url: ${url} \n ${error.message}`);
       }
     }
     makeRequest();
