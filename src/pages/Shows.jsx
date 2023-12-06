@@ -37,7 +37,7 @@ function Shows() {
           sx={{width: "100%"}}
         >
           {GENRES.map((genre, index) => (
-            <MenuItem key={index} value={genre}>
+            <MenuItem key={index}  value={genre}>
               {genre}
             </MenuItem>
           ))}

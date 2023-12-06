@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+
+
 function useRequest(url) {
   const [apiData, setApiData] = useState([]);
   useEffect(() => {
@@ -14,8 +16,10 @@ function useRequest(url) {
     }
     makeRequest();
   }, [url]);
-
+  
+  console.log(`url: ${url} \n DATA: ${apiData}`);
   return apiData;
 }
+
 
 export default useRequest;
