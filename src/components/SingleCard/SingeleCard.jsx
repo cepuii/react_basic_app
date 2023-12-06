@@ -21,8 +21,6 @@ const cardBackgroundStyle = {
   position: "absolute",
   width: "100%",
   height: "100%",
-  paddingTop: "50px",
-  paddingLeft: "50px",
   top: 0,
   left: 0,
   color: "white",

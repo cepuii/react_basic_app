@@ -1,13 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import useRequest from "../hooks/useRequest";
-import { Grid, NativeSelect } from "@mui/material";
+import {
+  Box,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import SingleCard from "../components/SingleCard/SingeleCard";
 import { GENRES } from "../constants/constants";
-import {  setGenre } from "../store/SearchSlice";
+import { setGenre } from "../store/SearchSlice";
 
 function Shows() {
-  const genre = useSelector((state) => state.search.genre)?? "Action";
-  
+  const genre = useSelector((state) => state.search.genre) ?? "Action";
+
   let url = `https://dolphin-app-pc6ii.ondigitalocean.app/article/byGenre/${genre}`;
 
   const apiData = useRequest(url);
@@ -15,32 +22,35 @@ function Shows() {
   const handleGenreChange = (e) => {
     dispatch(setGenre(e.target.value));
   };
-  
+
   return (
-    <>
+    <Box sx={{ width: "95%", ml: "50px" }}>
       <h1>Show by genre: {genre} </h1>
-      {"   "}
-      <NativeSelect
-        defaultValue={GENRES[0]}
-        value={genre}
-        onChange={handleGenreChange}
-        inputProps={{
-          name: "age",
-          id: "uncontrolled-native",
-        }}
-      >
-        {GENRES.map((genre, index) => (
-          <option key={index} value={genre}>{genre}</option>
-        ))}
-        ;
-      </NativeSelect>
+      <FormControl sx={{ display: "block", m: 1, width: "300px" }}>
+        <InputLabel id="select-label">Genre</InputLabel>
+        <Select
+          labelId="select-label"
+          id="select"
+          defaultValue={GENRES[0]}
+          value={genre}
+          label="Genre"
+          onChange={handleGenreChange}
+        >
+          {GENRES.map((genre, index) => (
+            <MenuItem key={index} value={genre}>
+              {genre}
+            </MenuItem>
+          ))}
+          ;
+        </Select>
+      </FormControl>
       <Grid
         container
-        spacing={3}
+        spacing={2}
         sx={{
-          margin: "20px",
-          justifyContent: "center",
-          alignItems: "flex-start",
+          width: "100%",
+          margin: "20px 0",
+          justifyContent: "space-around",
         }}
       >
         {apiData.map((cardInfo, index) => (
@@ -49,7 +59,7 @@ function Shows() {
           </Grid>
         ))}
       </Grid>
-    </>
+    </Box>
   );
 }
 
