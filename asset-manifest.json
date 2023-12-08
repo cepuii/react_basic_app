@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/react_basic_app/static/css/main.3d2b6d5d.css",
-    "main.js": "/react_basic_app/static/js/main.fb9c39a5.js",
+    "main.css": "/react_basic_app/static/css/main.e4f527be.css",
+    "main.js": "/react_basic_app/static/js/main.a421c59a.js",
     "static/js/651.99e35168.chunk.js": "/react_basic_app/static/js/651.99e35168.chunk.js",
+    "static/media/movie-logo.png": "/react_basic_app/static/media/movie-logo.8a4a563ad6d9787eb7a3.png",
+    "static/media/actor-logo.png": "/react_basic_app/static/media/actor-logo.a1639be0dae913d04cd8.png",
     "static/media/google-play-badge.png": "/react_basic_app/static/media/google-play-badge.9a6894252cdf23607f0c.png",
     "static/media/logo.png": "/react_basic_app/static/media/logo.545906d1489685c87fb3.png",
     "static/media/app-store-badge.png": "/react_basic_app/static/media/app-store-badge.0887ffc6efdb521cbd55.png",
     "index.html": "/react_basic_app/index.html",
-    "main.3d2b6d5d.css.map": "/react_basic_app/static/css/main.3d2b6d5d.css.map",
-    "main.fb9c39a5.js.map": "/react_basic_app/static/js/main.fb9c39a5.js.map",
+    "main.e4f527be.css.map": "/react_basic_app/static/css/main.e4f527be.css.map",
+    "main.a421c59a.js.map": "/react_basic_app/static/js/main.a421c59a.js.map",
     "651.99e35168.chunk.js.map": "/react_basic_app/static/js/651.99e35168.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d2b6d5d.css",
-    "static/js/main.fb9c39a5.js"
+    "static/css/main.e4f527be.css",
+    "static/js/main.a421c59a.js"
   ]
 }
