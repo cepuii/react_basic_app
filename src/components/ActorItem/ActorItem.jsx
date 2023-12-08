@@ -2,17 +2,25 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea, Modal } from "@mui/material";
+import {
+  Box,
+  CardActionArea,
+  IconButton,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+  Modal,
+} from "@mui/material";
 import DEFAULT_IMAGE from "../../images/actor-logo.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
   bgcolor: "#4A4E69",
   border: "none",
   borderRadius: "3px",
@@ -21,43 +29,39 @@ const style = {
 };
 
 export default function ActorItem({ character = {}, person = {} }) {
-
-  
   const [open, setOpen] = useState(false);
   const [actorId, setActorId] = useState(null);
   const [apiData, setApiData] = useState(null);
-  const handleOpen = (e) => {
+  const handleOpen = (id) => {
     setOpen(true);
-    setActorId(e.target.id);
+    setActorId(id);
   };
   const handleClose = () => setOpen(false);
-  
+
   const image =
     character?.image?.medium ?? person?.image?.medium ?? DEFAULT_IMAGE;
 
-  console.log(actorId);
   useEffect(() => {
     async function makeRequest() {
       try {
-        const response = await axios.get(`https://dolphin-app-pc6ii.ondigitalocean.app/article/actor/${actorId}`);
+        const response = await axios.get(
+          `https://dolphin-app-pc6ii.ondigitalocean.app/article/actor/${actorId}`
+        );
         setApiData(response.data);
       } catch (error) {
         console.log(error);
       }
     }
-    makeRequest();
-
+    if (actorId) {
+      makeRequest();
+    }
   }, [actorId]);
-
-  console.log(apiData);
-
 
   return (
     <>
-      <Card sx={{ width: 350, height: 200, bgcolor: "#8d99ae" }}>
+      <Card raised="true" sx={{ width: 350, height: 200, bgcolor: "#8d99ae" }}>
         <CardActionArea
-          id={person.id}
-          onClick={handleOpen}
+          onClick={() => handleOpen(person.id)}
           sx={{ display: "flex", height: "100%" }}
         >
           <CardMedia
@@ -83,12 +87,37 @@ export default function ActorItem({ character = {}, person = {} }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {apiData}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Card raised="true" sx={{ display: "flex", height: "100%" }}>
+            <CardMedia
+              component="img"
+              image={apiData?.image?.original}
+              alt="actor photo"
+              sx={{ width: "400px", height: "auto" }}
+            />
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                {apiData?.name}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {apiData?.birthday}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {apiData?.country?.name}
+              </Typography>
+              <ImageList sx={{ width: 500, height: 450 }}>
+                {apiData?.casts?.map((item) => (
+                  <IconButton>
+                    <Link to={`/shows/:${item?.id}`} onClick={handleClose}>
+                      <ImageListItem key={item?.id}>
+                        <img src={item?.image?.medium} alt="show logo" />
+                        <ImageListItemBar title={item.name} />
+                      </ImageListItem>
+                    </Link>
+                  </IconButton>
+                ))}
+              </ImageList>
+            </CardContent>
+          </Card>
         </Box>
       </Modal>
     </>

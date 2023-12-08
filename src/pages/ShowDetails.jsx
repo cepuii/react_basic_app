@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import useRequest from "../hooks/useRequest";
 import SingleItemHeader from "../components/SingIetemHeader/SingleItemHeader";
 import { Box, Grid, Paper } from "@mui/material";
 import SingleItemTabs from "../components/SingleItemTabs/SingleItemTabs";
 import ActorItem from "../components/ActorItem/ActorItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ACTOR_CARDS_PER_PAGE } from "../constants/constants";
 
 const PaginationDots = ({ totalDots, activeDot, onPageClick }) => {
@@ -50,11 +50,16 @@ function ShowDetails() {
     setActiveDot(index);
   };
 
+  const location = useLocation();
+  useEffect(() => {
+    setActiveDot(0);
+  }, [location.pathname]);
+
   return (
     <Box sx={{ flexGrow: 1, mb: 2 }}>
       {apiData && (
         <>
-          <SingleItemHeader {...apiData}></SingleItemHeader>{" "}
+          <SingleItemHeader {...apiData}></SingleItemHeader>
           <SingleItemTabs
             summary={apiData.summary}
             series={apiData.series}

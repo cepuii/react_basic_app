@@ -39,8 +39,8 @@ export default function SingleCard({ id, name, time, image }) {
               component="img"
               alt={name}
               image={image?.medium ?? DEFAULT_IMAGE}
-              width={"250px"}
-              height={"350px"}
+              width={"100%"}
+              height={"100%"}
             />
             <div style={cardBackgroundStyle}>
               <Box sx={{ display: "grid", placeContent: "end" }}></Box>
