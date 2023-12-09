@@ -30,7 +30,7 @@ export default function StickyHeadTable({ rows = [] }) {
             <TableRow>
               {COLUMNS_EPISODS.map((column) => (
                 <TableCell
-                  sx={{ bgcolor: "#2b2d42" }}
+                  sx={{ bgcolor: "#2B2D42", color: "white" }}
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
@@ -48,11 +48,15 @@ export default function StickyHeadTable({ rows = [] }) {
                   <TableRow hover role="checkbox" tabIndex={-1} key={index}>
                     {COLUMNS_EPISODS.map((column) => {
                       const value =
-                        column.id === "rating"
+                        column.id === "name"
+                          ? `${row.name} (Season ${row.season}, Episode ${row.number})`
+                          : column.id === "rating"
                           ? row.rating.average
                           : row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
+                          {column.id === "index" &&
+                            index + 1 + page * rowsPerPage}
                           {column.id === "rating" && (
                             <>
                               <Rating
@@ -85,6 +89,7 @@ export default function StickyHeadTable({ rows = [] }) {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        sx={{ color: "white" }}
       />
     </Paper>
   );

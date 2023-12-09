@@ -13,6 +13,7 @@ import { GENRES } from "../constants/constants";
 import { setGenre } from "../store/SearchSlice";
 
 function Shows() {
+
   const genre = useSelector((state) => state.search.genre);
 
   let url = `https://dolphin-app-pc6ii.ondigitalocean.app/article/byGenre/${genre}`;
@@ -31,7 +32,7 @@ function Shows() {
         <Select
           labelId="select-label"
           id="select"
-          value={genre?? GENRES[0]}
+          value={genre}
           label="Genre"
           onChange={handleGenreChange}
           sx={{width: "100%"}}

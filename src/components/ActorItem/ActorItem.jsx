@@ -5,16 +5,16 @@ import Typography from "@mui/material/Typography";
 import {
   Box,
   CardActionArea,
-  IconButton,
   ImageList,
   ImageListItem,
   ImageListItemBar,
   Modal,
 } from "@mui/material";
-import DEFAULT_IMAGE from "../../images/actor-logo.png";
+import DEFAULT_ACTOR_IMAGE from "../../images/actor-logo.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DEFAULT_SHOw_IMAGE from "../../images/movie-logo.png";
 
 const style = {
   position: "absolute",
@@ -39,7 +39,7 @@ export default function ActorItem({ character = {}, person = {} }) {
   const handleClose = () => setOpen(false);
 
   const image =
-    character?.image?.medium ?? person?.image?.medium ?? DEFAULT_IMAGE;
+    character?.image?.medium ?? person?.image?.medium ?? DEFAULT_ACTOR_IMAGE;
 
   useEffect(() => {
     async function makeRequest() {
@@ -106,14 +106,17 @@ export default function ActorItem({ character = {}, person = {} }) {
               </Typography>
               <ImageList sx={{ width: 500, height: 450 }}>
                 {apiData?.casts?.map((item) => (
-                  <IconButton>
+                  <CardActionArea key={item?.id}>
                     <Link to={`/shows/:${item?.id}`} onClick={handleClose}>
-                      <ImageListItem key={item?.id}>
-                        <img src={item?.image?.medium} alt="show logo" />
+                      <ImageListItem >
+                        <img
+                          src={item?.image?.medium ?? DEFAULT_SHOw_IMAGE}
+                          alt="show logo"
+                        />
                         <ImageListItemBar title={item.name} />
                       </ImageListItem>
                     </Link>
-                  </IconButton>
+                  </CardActionArea>
                 ))}
               </ImageList>
             </CardContent>

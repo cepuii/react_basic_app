@@ -1,8 +1,7 @@
-import * as React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SingleItemTable from "../SingleItemTable/SingleItemTable";
 
@@ -19,7 +18,7 @@ function SingleItemTabs(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Box>{children}</Box>
         </Box>
       )}
     </div>
@@ -40,7 +39,7 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs({ summary, series }) {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -55,8 +54,8 @@ export default function BasicTabs({ summary, series }) {
           aria-label="basic tabs example"
           centered
         >
-          <Tab label="Description" {...a11yProps(0)} />
-          <Tab label="Series" {...a11yProps(1)} />
+          <Tab label="Description" sx={{ color: "white" }} {...a11yProps(0)} />
+          <Tab label="Series" sx={{ color: "white" }} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <SingleItemTabs value={value} index={0}>

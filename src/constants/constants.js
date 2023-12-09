@@ -14,7 +14,8 @@ export const MENU = [
 ];
 
 export const COLUMNS_EPISODS = [
-  { id: "name", label: "Episode", minWidth: 170 },
+  { id: "index", label: "№", minWidth: 30 },
+  { id: "name", label: "Episode name", minWidth: 170 },
   { id: "airdate", label: "Airdate", minWidth: 100 },
   { id: "rating", label: "Rating", minWidth: 170 },
 ];

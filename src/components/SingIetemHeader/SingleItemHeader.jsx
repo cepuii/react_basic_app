@@ -54,7 +54,7 @@ export default function SingleItemHeader({
         container
         sx={{ justifyContent: "space-between", margin: "20px", color: "#fff" }}
       >
-        <Grid item alignSelf="center">
+        <Grid alignSelf="center">
           <Typography variant="h2">
             {name + " "}
 
@@ -68,13 +68,13 @@ export default function SingleItemHeader({
             {" " + averageRating === 0 ? "" : averageRating}
           </Typography>
           <Typography marginBottom={1}>{genresString}</Typography>
-          <Typography marginBottom={1}>
+          <Box marginBottom={1}>
             <Avatar sx={showTypeStyle} variant="rounded">
               {type.at(0)}
             </Avatar>{" "}
             {showLengthHours}hr : {showLengthMinutes}mins • {dateString} • 👁
             {views} views
-          </Typography>
+          </Box>
           <Box marginBottom={1} sx={{ display: "flex" }}>
             <IconButton size="small" sx={{ bgcolor: "#fff", margin: "5px" }}>
               <ShareIcon sx={{ color: "red", fontSize: "small" }}></ShareIcon>
@@ -109,7 +109,7 @@ export default function SingleItemHeader({
             ))}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid>
           <img
             src={showPoster}
             alt="film poster"
