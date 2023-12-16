@@ -13,14 +13,17 @@ import { GENRES } from "../constants/constants";
 import { setGenre } from "../store/SearchSlice";
 
 function Shows() {
-  const genre = useSelector((state) => state.search.genre) ?? GENRES[0];
+  const genre = useSelector((state) => state.search.genre);
   const search = useSelector((state) => state.search.value);
+
   let url = `https://dolphin-app-pc6ii.ondigitalocean.app/article/byGenre/${genre}`;
+
   if (search.length >= 3) {
     url = `https://dolphin-app-pc6ii.ondigitalocean.app/article?q=${search}`;
   }
   const apiData = useRequest(url);
   const dispatch = useDispatch();
+
   const handleGenreChange = (e) => {
     dispatch(setGenre(e.target.value));
   };
