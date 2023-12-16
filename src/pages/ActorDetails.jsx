@@ -8,6 +8,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import ShareIcon from "@mui/icons-material/Share";
 import ShowSlider from "../components/ShowSlider/ShowSlider";
+import DEFAULT_ACTOR_IMAGE from "../images/actor-logo.png";
 
 const ActorDetails = () => {
   console.log("render page");
@@ -39,7 +40,7 @@ const ActorDetails = () => {
     >
       <Grid item xs={3}>
         <img
-          src={apiData?.image?.original}
+          src={apiData?.image?.original ?? DEFAULT_ACTOR_IMAGE}
           alt="Actor"
           width="220px"
           height="auto"

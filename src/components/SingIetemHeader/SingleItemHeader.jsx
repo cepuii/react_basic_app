@@ -113,8 +113,8 @@ export default function SingleItemHeader({
           <img
             src={showPoster}
             alt="film poster"
-            width="220px"
-            height="300px"
+            width="250px"
+            height="330px"
           />
         </Grid>
       </Grid>
