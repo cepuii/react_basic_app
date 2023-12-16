@@ -1,23 +1,13 @@
 import { useEffect, useState } from "react";
-import DEFAULT_SHOW_IMAGE from "../images/movie-logo.png";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
-import {
-  Box,
-  CardActionArea,
-  Grid,
-  IconButton,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-} from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useParams } from "react-router-dom";
+import { Box, Grid, IconButton, Typography } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import ShareIcon from "@mui/icons-material/Share";
+import ShowSlider from "../components/ShowSlider/ShowSlider";
 
 const ActorDetails = () => {
   console.log("render page");
@@ -98,40 +88,7 @@ const ActorDetails = () => {
           <Typography variant="h5" component="h4" mb="20px">
             {"Acting in"}
           </Typography>
-          <Box
-            sx={{
-              maxWidth: "1200px",
-              width: "100%",
-              height: "200px",
-            }}
-          >
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={5}
-              navigation={true}
-              modules={[Navigation]}
-              style={{ padding: "0 50px" }}
-            >
-              {apiData?.casts?.map((item) => (
-                <SwiperSlide style={{ width: "160px", height: "282px" }}>
-                  <CardActionArea key={item?.id}>
-                    <Link to={`/shows/:${item?.id}`}>
-                      <ImageListItem>
-                        <img
-                          src={item?.image?.medium ?? DEFAULT_SHOW_IMAGE}
-                          width="140px"
-                          height="200px"
-                          alt="show logo"
-                          style={{ objectFit: "contain" }}
-                        />
-                        <ImageListItemBar title={item.name} />
-                      </ImageListItem>
-                    </Link>
-                  </CardActionArea>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </Box>
+          <ShowSlider shows={apiData?.casts}></ShowSlider>
         </Box>
       </Grid>
     </Grid>
@@ -139,44 +96,3 @@ const ActorDetails = () => {
 };
 
 export default ActorDetails;
-
-/*
-
-    <Box>
-      <Card raised="true" sx={{ display: "flex", height: "100%" }}>
-        <CardMedia
-          component="img"
-          image={apiData?.image?.original}
-          alt="actor photo"
-          sx={{ width: "400px", height: "auto" }}
-        />
-        <CardContent sx={{ flexGrow: 1 }}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {apiData?.name}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {apiData?.birthday}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {apiData?.country?.name}
-          </Typography>
-          <ImageList sx={{ width: 500, height: 450 }}>
-            {apiData?.casts?.map((item) => (
-              <CardActionArea key={item?.id}>
-                <Link to={`/shows/:${item?.id}`}>
-                  <ImageListItem>
-                    <img
-                      src={item?.image?.medium ?? DEFAULT_SHOW_IMAGE}
-                      alt="show logo"
-                    />
-                    <ImageListItemBar title={item.name} />
-                  </ImageListItem>
-                </Link>
-              </CardActionArea>
-            ))}
-          </ImageList>
-        </CardContent>
-      </Card>
-    </Box>
-
-*/
