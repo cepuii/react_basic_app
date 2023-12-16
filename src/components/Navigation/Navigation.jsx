@@ -7,6 +7,7 @@ import logo from "../../images/logo.png";
 import { MENU } from "../../constants/constants";
 import { NavLink } from "react-router-dom";
 import "./navigation.css";
+import SearchInput from "./SearchInput/SearchInput";
 
 export default function Navigation({ pages }) {
   return (
@@ -29,6 +30,7 @@ export default function Navigation({ pages }) {
               </NavLink>
             ))}
           </Box>
+          <SearchInput></SearchInput>
         </Toolbar>
       </AppBar>
     </Box>
