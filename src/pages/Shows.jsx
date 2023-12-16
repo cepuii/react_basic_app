@@ -13,11 +13,12 @@ import { GENRES } from "../constants/constants";
 import { setGenre } from "../store/SearchSlice";
 
 function Shows() {
-
-  const genre = useSelector((state) => state.search.genre);
-
+  const genre = useSelector((state) => state.search.genre) ?? GENRES[0];
+  const search = useSelector((state) => state.search.value);
   let url = `https://dolphin-app-pc6ii.ondigitalocean.app/article/byGenre/${genre}`;
-
+  if (search.length >= 3) {
+    url = `https://dolphin-app-pc6ii.ondigitalocean.app/article?q=${search}`;
+  }
   const apiData = useRequest(url);
   const dispatch = useDispatch();
   const handleGenreChange = (e) => {
@@ -35,10 +36,10 @@ function Shows() {
           value={genre}
           label="Genre"
           onChange={handleGenreChange}
-          sx={{width: "100%"}}
+          sx={{ width: "100%" }}
         >
           {GENRES.map((genre, index) => (
-            <MenuItem key={index}  value={genre}>
+            <MenuItem key={index} value={genre}>
               {genre}
             </MenuItem>
           ))}
