@@ -8,7 +8,10 @@ export default function TitleSingleSlide({ id, name, summary, genres, image }) {
   const showCastById = `https://dolphin-app-pc6ii.ondigitalocean.app/article/${id}/cast`;
   const castData = useRequest(showCastById);
   const starring = useMemo(() => {
-    return castData.map((actor) => actor.person.name).join(", ");
+    return castData
+      .slice(0, 15)
+      .map((actor) => actor.person.name)
+      .join(", ");
   }, [castData]);
 
   const genresString = useMemo(() => genres.join(", "), [genres]);
