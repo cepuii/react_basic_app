@@ -4,7 +4,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../../../store/SearchSlice";
 import { useNavigate } from "react-router-dom";
-import { GENRES } from "../../../constants/constants";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
