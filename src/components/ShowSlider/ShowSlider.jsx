@@ -12,7 +12,6 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 function ShowSlider({ shows = [] }) {
-  console.log(shows);
   return (
     <Box
       sx={{
@@ -28,8 +27,8 @@ function ShowSlider({ shows = [] }) {
         modules={[Navigation]}
         style={{ padding: "0 50px" }}
       >
-        {shows?.map((item) => (
-          <SwiperSlide style={{ width: "160px", height: "282px" }}>
+        {shows?.map((item, index) => (
+          <SwiperSlide key={index} style={{ width: "160px", height: "282px" }}>
             <CardActionArea key={item?.id}>
               <Link to={`/shows/:${item?.id}`}>
                 <ImageListItem>

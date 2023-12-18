@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const swiperContainerStyle = {
+  marginTop: "68.75px",
   maxWidth: "100%",
   width: "100%",
   height: "calc(100vh - 68.75px)",
