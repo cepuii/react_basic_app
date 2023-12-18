@@ -56,7 +56,7 @@ function ShowDetails() {
   }, [location.pathname]);
 
   return (
-    <Box sx={{ flexGrow: 1, mb: 2 }}>
+    <Box sx={{ flexGrow: 1, mb: 2, mt: "70px" }}>
       {apiData && (
         <>
           <SingleItemHeader {...apiData}></SingleItemHeader>

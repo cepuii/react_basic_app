@@ -29,7 +29,7 @@ function Shows() {
   };
 
   return (
-    <Box sx={{ width: "95%", ml: "50px" }}>
+    <Box sx={{ width: "95%", ml: "50px", mt: "70px" }}>
       <h1>Show by genre: {genre} </h1>
       <FormControl sx={{ display: "block", m: 1, width: "200px" }}>
         <InputLabel id="select-label">Genre</InputLabel>

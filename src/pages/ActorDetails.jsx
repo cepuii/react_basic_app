@@ -36,7 +36,7 @@ const ActorDetails = () => {
       spacing={3}
       direction="row"
       justifyContent={"space-around"}
-      sx={{ margin: "20px" }}
+      sx={{ margin: "90px 20px 20px 20px" }}
     >
       <Grid item xs={3}>
         <img
