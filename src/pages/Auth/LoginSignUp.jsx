@@ -12,7 +12,7 @@ export default function LoginSignUp() {
 
   useEffect(() => {
     if (token) {
-      navigate("/home");
+      navigate(-1);
     }
   }, [token, navigate]);
 

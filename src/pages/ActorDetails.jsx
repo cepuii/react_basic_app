@@ -11,7 +11,6 @@ import ShowSlider from "../components/ShowSlider/ShowSlider";
 import DEFAULT_ACTOR_IMAGE from "../images/actor-logo.png";
 
 const ActorDetails = () => {
-  console.log("render page");
   const [apiData, setApiData] = useState(null);
   const actorId = useParams()["id"].slice(1);
   useEffect(() => {

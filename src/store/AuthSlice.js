@@ -11,6 +11,8 @@ const AuthSlice = createSlice({
     fullName: fullName,
     email: email,
     token: token,
+    errorLoginMessage: "",
+    errorRegisterMessage: "",
     loading: false,
   },
   reducers: {
@@ -23,6 +25,12 @@ const AuthSlice = createSlice({
       state.email = action.payload.email;
       localStorage.setItem("email", action.payload.email);
     },
+    setLoginErrorMessage: (state, action) => {
+      state.errorLoginMessage = action.payload;
+    },
+    setRegisterErrorMessage: (state, action) => {
+      state.errorRegisterMessage = action.payload;
+    },
     setToken: (state, action) => {
       state.token = action.payload;
       localStorage.setItem("token", action.payload);
@@ -30,11 +38,16 @@ const AuthSlice = createSlice({
   },
 });
 
-export const { setLoading, setUserData, setToken } = AuthSlice.actions;
+export const {
+  setLoading,
+  setUserData,
+  setToken,
+  setLoginErrorMessage,
+  setRegisterErrorMessage,
+} = AuthSlice.actions;
 
 export const handleLogout = (dispatch) => {
-  dispatch(setToken(null));
-  localStorage.removeItem("token");
+  dispatch(setToken(""));
 };
 
 export const handleAuthentification = (data) => async (dispatch, getState) => {
@@ -58,7 +71,7 @@ export const handleAuthentification = (data) => async (dispatch, getState) => {
     );
     dispatch(setToken(request.data.accessToken));
   } catch (error) {
-    console.log(error);
+    dispatch(setLoginErrorMessage(error.response.data.message));
   } finally {
     dispatch(setLoading(false));
   }
@@ -88,7 +101,6 @@ export const handleRegistration = (data) => async (dispatch, getState) => {
           },
         }
       );
-      console.log(verifyRequest);
       dispatch(
         setUserData({
           fullName: verifyRequest.data.fullName,
@@ -98,7 +110,7 @@ export const handleRegistration = (data) => async (dispatch, getState) => {
       dispatch(setToken(verifyRequest.data.accessToken));
     }
   } catch (error) {
-    console.log(error);
+    dispatch(setRegisterErrorMessage(error.response.data.message));
   } finally {
     dispatch(setLoading(false));
   }

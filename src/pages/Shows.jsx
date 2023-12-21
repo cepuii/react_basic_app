@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 import SingleCard from "../components/SingleCard/SingeleCard";
 import { GENRES } from "../constants/constants";
-import { setGenre } from "../store/SearchSlice";
+import { setGenre, setSearch } from "../store/SearchSlice";
 
 function Shows() {
-  const genre = useSelector((state) => state.search.genre);
+  const genre = useSelector((state) => state.search.genre) || "Action";
   const search = useSelector((state) => state.search.value);
 
   let url = `https://dolphin-app-pc6ii.ondigitalocean.app/article/byGenre/${genre}`;
@@ -25,6 +25,7 @@ function Shows() {
   const dispatch = useDispatch();
 
   const handleGenreChange = (e) => {
+    dispatch(setSearch(""));
     dispatch(setGenre(e.target.value));
   };
 
@@ -41,9 +42,9 @@ function Shows() {
           onChange={handleGenreChange}
           sx={{ width: "100%" }}
         >
-          {GENRES.map((genre, index) => (
-            <MenuItem key={index} value={genre}>
-              {genre}
+          {GENRES.map((genreItem, index) => (
+            <MenuItem key={index} value={genreItem}>
+              {genreItem}
             </MenuItem>
           ))}
           ;
