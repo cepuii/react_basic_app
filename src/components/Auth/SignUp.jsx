@@ -3,7 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleRegistration } from "../../store/AuthSlice";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { IconButton } from "@mui/material";
+
+const socialLinkStyle = {
+  bgcolor: "#252525",
+  margin: "5px",
+  width: "40px",
+  height: "40px",
+  "&:hover": {
+    backgroundColor: "#ff4b2b",
+  },
+};
 
 function SignUpForm() {
   const [fullName, setFullname] = useState("");
@@ -27,15 +37,12 @@ function SignUpForm() {
       <form onSubmit={handleFormSubmit}>
         <h1>Create Account</h1>
         <div className="social-container">
-          <a href="#" className="social">
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <GoogleIcon></GoogleIcon>
-          </a>
-          <a href="#" className="social">
+          </IconButton>
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <FacebookIcon></FacebookIcon>
-          </a>
-          <a href="#" className="social">
-            <LinkedInIcon></LinkedInIcon>
-          </a>
+          </IconButton>
         </div>
         <span>or use your email for registration</span>
         <input

@@ -1,10 +1,19 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { handleAuthentification } from "../../store/AuthSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { IconButton } from "@mui/material";
+
+const socialLinkStyle = {
+  bgcolor: "#252525",
+  margin: "5px",
+  width: "40px",
+  height: "40px",
+  "&:hover": {
+    backgroundColor: "#ff4b2b",
+  },
+};
 
 function SignInForm() {
   const [email, setEmail] = useState("");
@@ -26,15 +35,12 @@ function SignInForm() {
       <form onSubmit={handleLoginFormSubmit}>
         <h1>Sign in</h1>
         <div className="social-container">
-          <a href="#" className="social">
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <GoogleIcon></GoogleIcon>
-          </a>
-          <a href="#" className="social">
+          </IconButton>
+          <IconButton sx={socialLinkStyle} size="small" aria-label="socialLink">
             <FacebookIcon></FacebookIcon>
-          </a>
-          <a href="#" className="social">
-            <LinkedInIcon></LinkedInIcon>
-          </a>
+          </IconButton>
         </div>
         <span>or use your account</span>
         <input
