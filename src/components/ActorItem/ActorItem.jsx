@@ -11,7 +11,7 @@ export default function ActorItem({ character = {}, person = {} }) {
     character?.image?.medium ?? person?.image?.medium ?? DEFAULT_ACTOR_IMAGE;
 
   return (
-    <Card raised="true" sx={{ width: 350, height: 200, bgcolor: "#8d99ae" }}>
+    <Card sx={{ width: 350, height: 200, bgcolor: "#8d99ae" }}>
       <Link
         to={`/shows/actor/:${person.id}`}
         style={{ textDecoration: "none" }}

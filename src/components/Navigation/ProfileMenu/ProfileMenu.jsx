@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { handleLogout } from "../../../store/AuthSlice";
 
 function stringToColor(string) {
@@ -54,9 +54,11 @@ export default function ProfileMenu() {
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogoutClick = () => {
     handleLogout(dispatch);
     setAnchorElUser(null);
+    navigate("/home");
   };
 
   if (!token || !fullName) {

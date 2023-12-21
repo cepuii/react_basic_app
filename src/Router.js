@@ -6,8 +6,8 @@ import Shows from "./pages/Shows";
 import NotFound from "./pages/NotFound";
 import ShowDetails from "./pages/ShowDetails";
 import ActorDetails from "./pages/ActorDetails";
-import Register from "./pages/Auth/Register";
 import LoginSignUp from "./pages/Auth/LoginSignUp";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,15 +21,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/shows",
-        element: <Shows />,
+        element: (
+          <PrivateRoute>
+            <Shows />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/shows/:id",
-        element: <ShowDetails />,
+        element: (
+          <PrivateRoute>
+            <ShowDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/shows/actor/:id",
-        element: <ActorDetails />,
+        element: (
+          <PrivateRoute>
+            <ActorDetails />
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -38,10 +50,6 @@ const router = createBrowserRouter([
     element: <Auth />,
     errorElement: <NotFound />,
     children: [
-      {
-        path: "register",
-        element: <Register />,
-      },
       {
         path: "login",
         element: <LoginSignUp />,

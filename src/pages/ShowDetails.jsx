@@ -71,9 +71,9 @@ function ShowDetails() {
                 activeDot * cardsPerPage + cardsPerPage
               )
               .map((actorInfo, index) => (
-                <Grid item>
+                <Grid item key={index}>
                   <Paper elevation={3}>
-                    <ActorItem key={index} {...actorInfo}></ActorItem>
+                    <ActorItem {...actorInfo}></ActorItem>
                   </Paper>
                 </Grid>
               ))}
