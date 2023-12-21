@@ -6,7 +6,6 @@ import Shows from "./pages/Shows";
 import NotFound from "./pages/NotFound";
 import ShowDetails from "./pages/ShowDetails";
 import ActorDetails from "./pages/ActorDetails";
-import Register from "./pages/Auth/Register";
 import LoginSignUp from "./pages/Auth/LoginSignUp";
 
 const router = createBrowserRouter([
@@ -38,10 +37,6 @@ const router = createBrowserRouter([
     element: <Auth />,
     errorElement: <NotFound />,
     children: [
-      {
-        path: "register",
-        element: <Register />,
-      },
       {
         path: "login",
         element: <LoginSignUp />,
