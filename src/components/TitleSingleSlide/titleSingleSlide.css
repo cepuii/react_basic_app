@@ -15,14 +15,6 @@ span {
   flex-grow: 2;
 }
 
-.show-info-container {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: self-start;
-}
-
 .titleCardBackgroundStyle {
   position: absolute;
   display: flex;

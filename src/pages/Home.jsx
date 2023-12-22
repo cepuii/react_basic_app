@@ -10,18 +10,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const swiperContainerStyle = {
-  marginTop: "68.75px",
+  marginTop: "60px",
   maxWidth: "100%",
   width: "100%",
-  height: "calc(100vh - 68.75px)",
-  maxHeight: "calc(100vh - 68.75px)",
+  height: { xs: "150vh", md: "calc(100vh - 60px)" },
+  minHeight: "calc(100vh - 60px)",
   display: "grid",
 };
 
 const slider = {
   marginTop: "33px",
   marginRight: "auto",
-  marginBottom: "70px",
   marginLeft: "auto",
 };
 
