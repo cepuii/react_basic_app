@@ -8,27 +8,35 @@ import {
 } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 function ShowSlider({ shows = [] }) {
   return (
     <Box
+      className={"swiper-container"}
       sx={{
-        maxWidth: "1200px",
+        maxWidth: "80vw",
         width: "100%",
-        height: "200px",
+        height: "auto",
+        overflow: "hidden",
       }}
     >
       <Swiper
         spaceBetween={50}
-        slidesPerView={5}
-        navigation={true}
-        modules={[Navigation]}
-        style={{ padding: "0 50px" }}
+        slidesPerView={"auto"}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        className={"swiper-wrapper"}
       >
         {shows?.map((item, index) => (
-          <SwiperSlide key={index} style={{ width: "160px", height: "282px" }}>
+          <SwiperSlide
+            key={index}
+            className={"swiper-slide"}
+            style={{ width: "160px", height: "282px" }}
+          >
             <CardActionArea key={item?.id}>
               <Link to={`/shows/:${item?.id}`}>
                 <ImageListItem>
