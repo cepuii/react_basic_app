@@ -14,10 +14,10 @@ export const MENU = [
 ];
 
 export const COLUMNS_EPISODS = [
-  { id: "index", label: "№", minWidth: 30 },
-  { id: "name", label: "Episode name", minWidth: 170 },
-  { id: "airdate", label: "Airdate", minWidth: 100 },
-  { id: "rating", label: "Rating", minWidth: 170 },
+  { id: "index", label: "№", minWidth: 10 },
+  { id: "name", label: "Episode name", minWidth: 120 },
+  { id: "airdate", label: "Airdate", minWidth: 70 },
+  { id: "rating", label: "Rating", minWidth: 10 },
 ];
 
 export const ACTOR_CARDS_PER_PAGE = 4;

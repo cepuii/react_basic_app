@@ -63,9 +63,12 @@ export default function SingleItemHeader({
               readOnly
               value={averageRating}
               precision={0.1}
-              sx={{ bottom: "10px", fontSize: "25px" }}
+              sx={{
+                bottom: "10px",
+                fontSize: { xs: "10px", sm: "17.5px", md: "25px" },
+              }}
             />
-            {" " + averageRating === 0 ? "" : averageRating}
+            {" " + averageRating === 0 ? "" : ` ${averageRating}`}
           </Typography>
           <Typography marginBottom={1}>{genresString}</Typography>
           <Box marginBottom={1}>

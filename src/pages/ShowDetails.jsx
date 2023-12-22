@@ -1,40 +1,13 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useRequest from "../hooks/useRequest";
 import SingleItemHeader from "../components/SingIetemHeader/SingleItemHeader";
-import { Box, Grid, Paper } from "@mui/material";
+import { Box } from "@mui/material";
 import SingleItemTabs from "../components/SingleItemTabs/SingleItemTabs";
 import ActorItem from "../components/ActorItem/ActorItem";
-import { useEffect, useState } from "react";
-import { ACTOR_CARDS_PER_PAGE } from "../constants/constants";
-
-const PaginationDots = ({ totalDots, activeDot, onPageClick }) => {
-  return (
-    <div
-      style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
-    >
-      {Array.from({ length: totalDots }).map((_, index) => (
-        <Dot
-          key={index}
-          active={index === activeDot}
-          onClick={() => onPageClick(index)}
-        />
-      ))}
-    </div>
-  );
-};
-
-const Dot = ({ active, onClick }) => {
-  const dotStyle = {
-    width: "15px",
-    height: "15px",
-    borderRadius: "50%",
-    background: active ? "#2b2d42" : "#8d99ae",
-    margin: "0 5px",
-    cursor: "pointer",
-  };
-
-  return <div style={dotStyle} onClick={onClick} />;
-};
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 function ShowDetails() {
   const id = useParams()["id"].slice(1);
@@ -42,18 +15,6 @@ function ShowDetails() {
   const showCastById = `https://dolphin-app-pc6ii.ondigitalocean.app/article/${id}/cast`;
   const apiData = useRequest(showById);
   const castData = useRequest(showCastById);
-  const [activeDot, setActiveDot] = useState(0);
-  const cardsPerPage = ACTOR_CARDS_PER_PAGE;
-  const totalDots = Math.ceil(castData.length / cardsPerPage);
-
-  const handlePageClick = (index) => {
-    setActiveDot(index);
-  };
-
-  const location = useLocation();
-  useEffect(() => {
-    setActiveDot(0);
-  }, [location.pathname]);
 
   return (
     <Box sx={{ flexGrow: 1, mb: 2, mt: "70px" }}>
@@ -64,25 +25,36 @@ function ShowDetails() {
             summary={apiData.summary}
             series={apiData.series}
           ></SingleItemTabs>
-          <Grid container gap={2} sx={{ justifyContent: "center", mb: 2 }}>
-            {castData
-              .slice(
-                activeDot * cardsPerPage,
-                activeDot * cardsPerPage + cardsPerPage
-              )
-              .map((actorInfo, index) => (
-                <Grid item key={index}>
-                  <Paper elevation={3}>
-                    <ActorItem {...actorInfo}></ActorItem>
-                  </Paper>
-                </Grid>
+          <Box
+            className={"swiper-container"}
+            sx={{
+              margin: "auto",
+              maxWidth: "90vw",
+              width: "100%",
+              height: "auto",
+              overflow: "hidden",
+            }}
+          >
+            <Swiper
+              spaceBetween={20}
+              slidesPerView={"auto"}
+              pagination={{
+                dynamicBullets: true,
+              }}
+              modules={[Pagination]}
+              className={"swiper-wrapper"}
+            >
+              {castData?.map((actorInfo, index) => (
+                <SwiperSlide
+                  key={index}
+                  className={"swiper-slide"}
+                  style={{ width: "360px", height: "230px" }}
+                >
+                  <ActorItem {...actorInfo}></ActorItem>
+                </SwiperSlide>
               ))}
-          </Grid>
-          <PaginationDots
-            totalDots={totalDots}
-            activeDot={activeDot}
-            onPageClick={handlePageClick}
-          />
+            </Swiper>
+          </Box>
         </>
       )}
     </Box>
