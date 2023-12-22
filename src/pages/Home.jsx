@@ -13,7 +13,7 @@ const swiperContainerStyle = {
   marginTop: "60px",
   maxWidth: "100%",
   width: "100%",
-  height: { xs: "150vh", md: "calc(100vh - 60px)" },
+  height: { xs: "160vh", sm: "150vh", md: "calc(100vh - 60px)" },
   minHeight: "calc(100vh - 60px)",
   display: "grid",
 };

@@ -44,7 +44,11 @@ export default function TitleSingleSlide({ id, name, summary, genres, image }) {
             <h1 style={{ textTransform: "uppercase" }}>{name}</h1>
             <p
               dangerouslySetInnerHTML={{ __html: summary }}
-              style={{ marginTop: "40px" }}
+              style={{
+                marginTop: "40px",
+                maxHeight: "200px",
+                overflowY: "auto",
+              }}
             ></p>
             <p>
               <span>{"Starring: "}</span> {starring}
@@ -59,7 +63,7 @@ export default function TitleSingleSlide({ id, name, summary, genres, image }) {
               <button className="show-more-btn">{"Show more"}</button>
             </Link>
           </Grid>
-          <Grid item xs={12} md={4} sx={{ padding: "25px" }}>
+          <Grid item xs={12} md={4}>
             <img
               src={image?.original}
               alt="name"
