@@ -18,7 +18,7 @@ const socialLinkStyle = {
   },
 };
 
-function SignInForm() {
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const loading = useSelector((state) => state.auth.loading);
@@ -94,4 +94,4 @@ function SignInForm() {
   );
 }
 
-export default SignInForm;
+export default LoginForm;

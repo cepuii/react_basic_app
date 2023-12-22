@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
-import SignInForm from "../../components/Auth/Login";
+import LoginForm from "../../components/Auth/Login";
 import SignUpForm from "../../components/Auth/SignUp";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ export default function LoginSignUp() {
     <div className="auth">
       <div className={containerClass} id="container">
         <SignUpForm />
-        <SignInForm />
+        <LoginForm />
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
