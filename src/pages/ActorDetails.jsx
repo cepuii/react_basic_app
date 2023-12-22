@@ -33,11 +33,11 @@ const ActorDetails = () => {
     <Grid
       container
       spacing={3}
-      direction="row"
+      direction={"row"}
       justifyContent={"space-around"}
       sx={{ margin: "90px 20px 20px 20px" }}
     >
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         <img
           src={apiData?.image?.original ?? DEFAULT_ACTOR_IMAGE}
           alt="Actor"
@@ -47,6 +47,13 @@ const ActorDetails = () => {
         />
         <Typography variant="h4" component="h4">
           {"Personal info"}
+        </Typography>
+        <Typography
+          variant="h3"
+          component="h2"
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          {apiData?.name}
         </Typography>
         <IconButton>
           <FacebookIcon></FacebookIcon>
@@ -70,12 +77,21 @@ const ActorDetails = () => {
         </Typography>
         <Typography component="p">{apiData?.gender}</Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={8}>
         <Box>
-          <Typography variant="h3" component="h2">
+          <Typography
+            variant="h3"
+            component="h2"
+            sx={{ display: { xs: "none", md: "block" } }}
+          >
             {apiData?.name}
           </Typography>
-          <Typography component="p">{apiData?.name}</Typography>
+          <Typography
+            component="p"
+            sx={{ maxHeight: "150px", overflow: "auto" }}
+          >
+            {apiData?.summary}
+          </Typography>
           <hr
             style={{
               height: "2px",
