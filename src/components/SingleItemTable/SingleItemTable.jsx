@@ -60,7 +60,10 @@ export default function StickyHeadTable({ rows = [] }) {
                           {column.id === "rating" && (
                             <>
                               <Rating
-                                sx={{ top: "5px" }}
+                                sx={{
+                                  top: "5px",
+                                  display: { xs: "none", md: "inline-flex" },
+                                }}
                                 value={value}
                                 max={10}
                                 readOnly
