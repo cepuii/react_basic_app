@@ -46,7 +46,7 @@ export default function TitleSingleSlide({ id, name, summary, genres, image }) {
               dangerouslySetInnerHTML={{ __html: summary }}
               style={{
                 marginTop: "40px",
-                maxHeight: "200px",
+                maxHeight: { xs: "200px", md: "250px" },
                 overflowY: "auto",
               }}
             ></p>

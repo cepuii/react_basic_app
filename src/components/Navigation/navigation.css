@@ -1,6 +1,9 @@
 .navLink {
   text-decoration: none;
   color: #fff;
+  @media (max-width: 900px) {
+    color: #4a4e69;
+  }
   margin: 0 5px;
   text-transform: uppercase;
   font-weight: 400;
