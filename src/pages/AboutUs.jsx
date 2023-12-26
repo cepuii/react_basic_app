@@ -4,6 +4,22 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import ShareIcon from "@mui/icons-material/Share";
 import AVATAR from "../images/avatar.png";
 
+const hrStyle = {
+  height: "2px",
+  width: "100%",
+  border: "none",
+  background:
+    "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+};
+
+const typographyStyle = {
+  display: "block",
+  maxHeight: "150px",
+  overflow: "auto",
+  marginLeft: "20px",
+  marginBottom: "20px",
+};
+
 const AboutUs = () => {
   return (
     <Grid
@@ -62,53 +78,18 @@ const AboutUs = () => {
           >
             {"Serhei"}
           </Typography>
-          <hr
-            style={{
-              height: "2px",
-              width: "100%",
-              border: "none",
-              background:
-                "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
-            }}
-          />
-          <Typography
-            component="h6"
-            sx={{
-              display: "block",
-              maxHeight: "150px",
-              overflow: "auto",
-              marginLeft: "20px",
-              marginBottom: "20px",
-            }}
-          >
+          <hr style={hrStyle} />
+          <Typography component="h6" sx={typographyStyle}>
             {`Hey there!`}
           </Typography>
-          <Typography
-            component="p"
-            sx={{
-              display: "block",
-              maxHeight: "150px",
-              overflow: "auto",
-              marginLeft: "20px",
-              marginBottom: "20px",
-            }}
-          >
+          <Typography component="p" sx={typographyStyle}>
             {`Welcome to my site! I'm a frontend developer 
             with a sprinkle of backend experience – not quite 
             full-stack yet, but that's the goal! 🚀 The site 
             is crafted with React, and I'm eyeing React Native
             for future adventures in mobile development.`}
           </Typography>
-          <Typography
-            component="p"
-            sx={{
-              display: "block",
-              maxHeight: "150px",
-              overflow: "auto",
-              marginLeft: "20px",
-              marginBottom: "20px",
-            }}
-          >
+          <Typography component="p" sx={typographyStyle}>
             {`By the way, I recently graduated from Senior Full-Stack 
             Developer Nikolay's courses, and I couldn't be 
             happier with the knowledge gained. Everything you see 

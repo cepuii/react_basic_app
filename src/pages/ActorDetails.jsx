@@ -10,6 +10,14 @@ import ShareIcon from "@mui/icons-material/Share";
 import ShowSlider from "../components/ShowSlider/ShowSlider";
 import DEFAULT_ACTOR_IMAGE from "../images/actor-logo.png";
 
+const hrStyle = {
+  height: "2px",
+  width: "100%",
+  border: "none",
+  background:
+    "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+};
+
 const ActorDetails = () => {
   const [apiData, setApiData] = useState(null);
   const actorId = useParams()["id"].slice(1);
@@ -92,15 +100,7 @@ const ActorDetails = () => {
           >
             {apiData?.summary}
           </Typography>
-          <hr
-            style={{
-              height: "2px",
-              width: "100%",
-              border: "none",
-              background:
-                "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
-            }}
-          />
+          <hr style={hrStyle} />
           <Typography variant="h5" component="h4" mb="20px">
             {"Acting in"}
           </Typography>

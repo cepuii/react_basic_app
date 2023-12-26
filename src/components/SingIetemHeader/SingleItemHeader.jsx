@@ -18,6 +18,8 @@ const showTypeStyle = {
   textAlign: "center",
 };
 
+const iconButtonStyle = { bgcolor: "#fff", margin: "5px" };
+
 export default function SingleItemHeader({
   name = "",
   type = "",
@@ -79,15 +81,15 @@ export default function SingleItemHeader({
             {views} views
           </Box>
           <Box marginBottom={1} sx={{ display: "flex" }}>
-            <IconButton size="small" sx={{ bgcolor: "#fff", margin: "5px" }}>
+            <IconButton size="small" sx={iconButtonStyle}>
               <ShareIcon sx={{ color: "red", fontSize: "small" }}></ShareIcon>
             </IconButton>
-            <IconButton size="small" sx={{ bgcolor: "#fff", margin: "5px" }}>
+            <IconButton size="small" sx={iconButtonStyle}>
               <FavoriteIcon
                 sx={{ color: "red", fontSize: "small" }}
               ></FavoriteIcon>
             </IconButton>
-            <IconButton size="small" sx={{ bgcolor: "#fff", margin: "5px" }}>
+            <IconButton size="small" sx={iconButtonStyle}>
               <AddIcon sx={{ color: "red", fontSize: "small" }}></AddIcon>
             </IconButton>
           </Box>

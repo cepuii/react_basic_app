@@ -16,6 +16,19 @@ export default function LoginSignUp() {
     }
   }, [token, navigate]);
 
+  // const handlePopstate = () => {
+  //   if (!token) {
+  //     navigate("/home");
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("popstate", handlePopstate);
+  //   return () => {
+  //     window.removeEventListener("popstate", handlePopstate);
+  //   };
+  // }, []);
+
   const handleOnClick = (text) => {
     if (text !== type) {
       setType(text);

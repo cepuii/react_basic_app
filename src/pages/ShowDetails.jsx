@@ -9,6 +9,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
+const swiperContainer = {
+  margin: "auto",
+  maxWidth: "90vw",
+  width: "100%",
+  height: "auto",
+  overflow: "hidden",
+};
+
 function ShowDetails() {
   const id = useParams()["id"].slice(1);
   const showById = `https://dolphin-app-pc6ii.ondigitalocean.app/article/${id}`;
@@ -25,16 +33,7 @@ function ShowDetails() {
             summary={apiData.summary}
             series={apiData.series}
           ></SingleItemTabs>
-          <Box
-            className={"swiper-container"}
-            sx={{
-              margin: "auto",
-              maxWidth: "90vw",
-              width: "100%",
-              height: "auto",
-              overflow: "hidden",
-            }}
-          >
+          <Box className={"swiper-container"} sx={swiperContainer}>
             <Swiper
               spaceBetween={20}
               slidesPerView={"auto"}

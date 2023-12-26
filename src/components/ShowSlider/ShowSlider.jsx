@@ -11,17 +11,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
+const swiperContainer = {
+  maxWidth: "80vw",
+  width: "100%",
+  height: "auto",
+  overflow: "hidden",
+};
+
 function ShowSlider({ shows = [] }) {
   return (
-    <Box
-      className={"swiper-container"}
-      sx={{
-        maxWidth: "80vw",
-        width: "100%",
-        height: "auto",
-        overflow: "hidden",
-      }}
-    >
+    <Box className={"swiper-container"} sx={swiperContainer}>
       <Swiper
         spaceBetween={50}
         slidesPerView={"auto"}
