@@ -8,6 +8,7 @@ import ShowDetails from "./pages/ShowDetails";
 import ActorDetails from "./pages/ActorDetails";
 import LoginSignUp from "./pages/Auth/LoginSignUp";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import AboutUs from "./pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUs />,
       },
       {
         path: "/shows",
